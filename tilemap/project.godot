@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Ankara"
+run/main_scene="res://medieval.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[physics]
+
+2d/default_gravity=0.0
