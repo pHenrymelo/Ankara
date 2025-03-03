@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene: String = "res://scenes/grecia.tscn"
+@export var next_scene: String = "res://scenes/space.tscn"
 
 func _ready():
 	add_to_group("passagem")
