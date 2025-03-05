@@ -1,68 +1,90 @@
-[gd_scene load_steps=6 format=3 uid="uid://dra2dbcj6xldm"]
+[gd_scene load_steps=10 format=3 uid="uid://dra2dbcj6xldm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ojil"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_bte30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0wa5"]
+bg_color = Color(0.290196, 0.290196, 0.290196, 0.611765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfob0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 3
 border_width_right = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_378m4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ocpp"]
 bg_color = Color(0.8, 0.8, 0.8, 0.192157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30v86"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jvt1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u03ql"]
+[sub_resource type="InputEventAction" id="InputEventAction_q2ra7"]
+action = &"esc"
+
+[sub_resource type="Shortcut" id="Shortcut_xy3v1"]
+events = [SubResource("InputEventAction_q2ra7")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca3sl"]
 bg_color = Color(0.8, 0.8, 0.8, 0.192157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8qxi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpabb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="PauseMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bte30")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = -0.220052
+anchor_right = 1.22005
 anchor_bottom = 1.0
+offset_left = 253.5
+offset_right = -253.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0wa5")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_right = 350
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Jogo pausado"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfob0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 60
-text = "Jogo Pausado"
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="continuar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ojil")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="resumo" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 25
-theme_override_styles/hover = SubResource("StyleBoxFlat_378m4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_30v86")
-text = "Resumo"
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ocpp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3jvt1")
+shortcut = SubResource("Shortcut_xy3v1")
+text = "Continuar"
 
-[node name="sair" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="sair" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 25
-theme_override_styles/hover = SubResource("StyleBoxFlat_u03ql")
-theme_override_styles/normal = SubResource("StyleBoxFlat_y8qxi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ca3sl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fpabb")
 text = "Sair"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/sair" to="." method="_on_sair_pressed"]

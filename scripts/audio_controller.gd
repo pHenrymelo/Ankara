@@ -11,3 +11,9 @@ func _ready() -> void:
 func play_music():
 	if not mute:
 		$music.play()
+
+func play_level():
+	if not mute:
+		$music.stop()
+		$level1_music.play()
+		

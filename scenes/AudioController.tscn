@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhgunfpj20233"]
+[gd_scene load_steps=4 format=3 uid="uid://bhgunfpj20233"]
 
 [ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_dafq4"]
 [ext_resource type="AudioStream" uid="uid://d1jo2fp5uosjy" path="res://audio/noncopyright-music-pianos-295174.mp3" id="2_lv3om"]
+[ext_resource type="AudioStream" uid="uid://b1ia1fvckdhkp" path="res://audio/relaxing-guitar-loop-v5-245859.mp3" id="3_envii"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_dafq4")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lv3om")
+volume_db = -48.632
+
+[node name="level1_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_envii")
+volume_db = -2.567

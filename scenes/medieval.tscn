@@ -1,5 +1,6 @@
-[gd_scene load_steps=74 format=3 uid="uid://d3jlc710vfyx3"]
+[gd_scene load_steps=76 format=3 uid="uid://d3jlc710vfyx3"]
 
+[ext_resource type="Texture2D" uid="uid://b1fgqs341jdyr" path="res://stars-1845140_1920.jpg" id="1_aq8bu"]
 [ext_resource type="Texture2D" uid="uid://dybe1m25t35n5" path="res://character and tileset/Dungeon_Tileset.png" id="1_pig2g"]
 [ext_resource type="Texture2D" uid="uid://c40egsgaei5mf" path="res://Texture/TX Props.png" id="2_awiu3"]
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="2_bfryu"]
@@ -41,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://bd3ee8iesram6" path="res://2D Pixel Dungeon Asset Pack/items and trap_animation/mini_chest/mini_chest_open_4.png" id="38_11s3t"]
 [ext_resource type="Script" path="res://scenes/bau.gd" id="38_lympa"]
 [ext_resource type="Script" path="res://scenes/passagemMed.gd" id="40_yjj4m"]
+[ext_resource type="PackedScene" uid="uid://dra2dbcj6xldm" path="res://scenes/pause_menu.tscn" id="42_khoe2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkujr"]
 texture = ExtResource("1_pig2g")
@@ -891,6 +893,11 @@ size = Vector2(18, 17)
 
 [node name="medieval" type="Node2D"]
 
+[node name="bg_sapce" type="Sprite2D" parent="."]
+position = Vector2(451, 182)
+scale = Vector2(0.730889, 0.730889)
+texture = ExtResource("1_aq8bu")
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(64, 1)
@@ -1530,3 +1537,5 @@ script = ExtResource("40_yjj4m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passagemMedieval/Area2D"]
 shape = SubResource("RectangleShape2D_lvid4")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("42_khoe2")]

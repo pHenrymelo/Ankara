@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://bbdanj28o25x4"]
+[gd_scene load_steps=40 format=3 uid="uid://c74n7t3vmnb6c"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_lr0kj"]
+[ext_resource type="Texture2D" uid="uid://b1fgqs341jdyr" path="res://stars-1845140_1920.jpg" id="1_vhjmv"]
 [ext_resource type="Texture2D" uid="uid://c2pljo70fa0mg" path="res://main_character/astronauta de marmore full image (1).png" id="2_u6oqx"]
 [ext_resource type="Texture2D" uid="uid://d1wjoiux8qy3v" path="res://Texture/TX Tileset Grass.png" id="3_bqxrl"]
 [ext_resource type="Texture2D" uid="uid://j8v0m5qn0kl4" path="res://Texture/TX Tileset Stone Ground.png" id="4_pj5v8"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dm5yf5w0d85rp" path="res://Texture/TX Shadow Plant.png" id="9_3wvfy"]
 [ext_resource type="Texture2D" uid="uid://brrk0btjijvsb" path="res://Texture/TX Struct.png" id="10_qdbqb"]
 [ext_resource type="Script" path="res://scenes/passagemGre.gd" id="11_3atvd"]
+[ext_resource type="PackedScene" uid="uid://dra2dbcj6xldm" path="res://scenes/pause_menu.tscn" id="12_qo0cq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hc2lb"]
 texture = ExtResource("3_bqxrl")
@@ -2274,6 +2276,11 @@ height = 56.0
 
 [node name="grecia" type="Node2D"]
 
+[node name="bg_space" type="Sprite2D" parent="."]
+position = Vector2(217, 125)
+scale = Vector2(0.814353, 0.814353)
+texture = ExtResource("1_vhjmv")
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_ndivq")
@@ -2319,3 +2326,5 @@ script = ExtResource("11_3atvd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passagemGrecia/Area2D"]
 position = Vector2(20, 35)
 shape = SubResource("CapsuleShape2D_u6qs2")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_qo0cq")]

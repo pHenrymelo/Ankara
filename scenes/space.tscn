@@ -1,9 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://ma35j1dbtqnt"]
+[gd_scene load_steps=27 format=3 uid="uid://b6ok1wb54x6dx"]
 
 [ext_resource type="Texture2D" uid="uid://d1pme8wdix60" path="res://character and tileset/nave.png" id="1_fa4wj"]
+[ext_resource type="Script" path="res://scripts/space.gd" id="1_rtcs1"]
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="2_uut73"]
 [ext_resource type="Texture2D" uid="uid://c2pljo70fa0mg" path="res://main_character/astronauta de marmore full image (1).png" id="3_owo8m"]
 [ext_resource type="Script" path="res://scenes/passagemSpa.gd" id="4_f3glh"]
+[ext_resource type="PackedScene" uid="uid://dra2dbcj6xldm" path="res://scenes/pause_menu.tscn" id="6_5ym8c"]
+[ext_resource type="Texture2D" uid="uid://b1fgqs341jdyr" path="res://stars-1845140_1920.jpg" id="7_ehdcd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mswif"]
 texture = ExtResource("1_fa4wj")
@@ -579,6 +582,12 @@ animations = [{
 size = Vector2(34, 28)
 
 [node name="space" type="Node2D"]
+script = ExtResource("1_rtcs1")
+
+[node name="bg_space" type="Sprite2D" parent="."]
+position = Vector2(528, 326)
+scale = Vector2(0.815133, 0.815133)
+texture = ExtResource("7_ehdcd")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -622,3 +631,5 @@ script = ExtResource("4_f3glh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passagemSpace/Area2D"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_2ldfp")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_5ym8c")]
