@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhgunfpj20233"]
+
+[ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_dafq4"]
+[ext_resource type="AudioStream" uid="uid://d1jo2fp5uosjy" path="res://audio/noncopyright-music-pianos-295174.mp3" id="2_lv3om"]
+
+[node name="AudioController" type="Node2D"]
+script = ExtResource("1_dafq4")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lv3om")
