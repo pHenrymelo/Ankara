@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ced7c7ee1h075"
+path="res://.godot/imported/Metal slug 3 hard water soundtrack.mp3-2db588f07ac10aa53d13513a64d2b32c.mp3str"
+
+[deps]
+
+source_file="res://audio/Metal slug 3 hard water soundtrack.mp3"
+dest_files=["res://.godot/imported/Metal slug 3 hard water soundtrack.mp3-2db588f07ac10aa53d13513a64d2b32c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
